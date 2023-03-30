@@ -7,14 +7,27 @@ export type CurrencyProperties = {
 };
 
 export class Currency {
-  constructor(readonly props: CurrencyProperties) {}
+  constructor(public readonly props: CurrencyProperties) {
+    this.name = this.props.name
+    this.iso_code = this.props.iso_code
+    this.props.is_active = this.props.is_active ?? true
+    this.props.created_at = this.props.created_at ?? new Date
+  }
 
   get name(){
    return this.props.name 
   }
 
+  private set name(value: string){
+    this.name = value
+  }
+
   get iso_code(){
     return this.props.iso_code
+  }
+
+  private set iso_code(value: string){
+    this.iso_code = value
   }
 
   get is_active(){
