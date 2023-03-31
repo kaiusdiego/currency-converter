@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid"
+import UniqueEntityId from "../../../@seedwork/domain/unique-entity-id-vo";
 
 export type CurrencyProperties = {
   iso_code_from: string; //eg: BRL, USD, etc
@@ -10,10 +10,10 @@ export type CurrencyProperties = {
 
 export class Currency {
   
-  public readonly id: string
+  public readonly id: UniqueEntityId
 
-  constructor(public readonly props: CurrencyProperties, id?: string) {
-    this.id = id || uuidv4()
+  constructor(public readonly props: CurrencyProperties, id?: UniqueEntityId) {
+    this.id = id || new UniqueEntityId()
     this.props.is_active = this.props.is_active ?? true
     this.props.created_at = this.props.created_at ?? new Date
   }

@@ -1,6 +1,6 @@
 import { Currency, CurrencyProperties } from "./currency"
 import { omit} from 'lodash'
-import { validate as uuiValidate } from "uuid"
+import UniqueEntityId from "../../../@seedwork/domain/unique-entity-id-vo"
 
 describe("Currency Unit Tests", () => {
 
@@ -55,19 +55,19 @@ describe("Currency Unit Tests", () => {
 
   test("test id field", ()=> {
 
-    type CurrencyData = { props: CurrencyProperties; id?: string}
+    type CurrencyData = { props: CurrencyProperties; id?: UniqueEntityId}
 
     const data: CurrencyData[] = [
       {props: {iso_code_from: 'BRL', iso_code_to: 'USD', quotation: 1.5}},
       {props: {iso_code_from: 'BRL', iso_code_to: 'USD', quotation: 1.5}, id: null},
       {props: {iso_code_from: 'BRL', iso_code_to: 'USD', quotation: 1.5}, id: undefined},
-      {props: {iso_code_from: 'BRL', iso_code_to: 'USD', quotation: 1.5}, id: '6162474c-46a7-47c6-9ab5-b0411d9895b1'},
+      {props: {iso_code_from: 'BRL', iso_code_to: 'USD', quotation: 1.5}, id: new UniqueEntityId},
     ]
 
     data.forEach(i => {
-      const currency = new Currency(i.props, i.id)
+      const currency = new Currency(i.props, i.id as any)
       expect(currency.id).not.toBeNull()
-      expect(uuiValidate(currency.id)).toBeTruthy()        
+      expect(currency.id).toBeInstanceOf(UniqueEntityId)        
     });
 
   })
