@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid"
+
 export type CurrencyProperties = {
   iso_code_from: string; //eg: BRL, USD, etc
   iso_code_to: string; //eg: BRL, USD, etc
@@ -7,7 +9,11 @@ export type CurrencyProperties = {
 };
 
 export class Currency {
-  constructor(public readonly props: CurrencyProperties) {
+  
+  public readonly id: string
+
+  constructor(public readonly props: CurrencyProperties, id?: string) {
+    this.id = id || uuidv4()
     this.props.is_active = this.props.is_active ?? true
     this.props.created_at = this.props.created_at ?? new Date
   }
