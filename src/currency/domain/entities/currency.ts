@@ -1,6 +1,6 @@
 export type CurrencyProperties = {
-  name: string; //eg: Real, USA Dollar
-  iso_code: string; //eg: BRL, USD, etc
+  iso_code_from: string; //eg: BRL, USD, etc
+  iso_code_to: string; //eg: BRL, USD, etc
   quotation: number;
   is_active?: boolean;
   created_at?: Date;
@@ -8,26 +8,32 @@ export type CurrencyProperties = {
 
 export class Currency {
   constructor(public readonly props: CurrencyProperties) {
-    this.name = this.props.name
-    this.iso_code = this.props.iso_code
     this.props.is_active = this.props.is_active ?? true
     this.props.created_at = this.props.created_at ?? new Date
   }
 
-  get name(){
-   return this.props.name 
+  get iso_code_from(){
+    return this.props.iso_code_from
   }
 
-  private set name(value: string){
-    this.name = value
+  private set iso_code_from(value: string){
+    this.iso_code_from = value
   }
 
-  get iso_code(){
-    return this.props.iso_code
+  get iso_code_to(){
+    return this.props.iso_code_to
   }
 
-  private set iso_code(value: string){
-    this.iso_code = value
+  private set iso_code_to(value: string){
+    this.iso_code_to = value
+  }
+
+  get quotation(){
+    return this.props.quotation
+  }
+
+  private set quotation(value: number){
+    this.quotation = value
   }
 
   get is_active(){
