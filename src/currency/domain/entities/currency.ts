@@ -40,6 +40,10 @@ export class Currency {
     return this.props.is_active
   }
 
+  private set is_active(value: boolean){
+    this.is_active = value ?? true
+  }
+
   get created_at(){
     return this.props.created_at
   } 

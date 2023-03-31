@@ -39,8 +39,16 @@ describe("Currency Unit Tests", () => {
       created_at
     })
 
+    currency = new Currency({ 
+      iso_code_from: 'BRL', 
+      iso_code_to: 'USD', 
+      quotation: 10,
+      is_active: true,
+      created_at 
+    })
+  
+    expect(currency.props.created_at).toBe(created_at)
 
-    
 
   })
 })
