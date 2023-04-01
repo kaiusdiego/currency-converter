@@ -1,4 +1,4 @@
-import UniqueEntityId from "../../../@seedwork/domain/unique-entity-id-vo";
+import UniqueEntityId from "../../../@seedwork/domain/value-object/unique-entity-id-vo";
 
 export type CurrencyProperties = {
   iso_code_from: string; //eg: BRL, USD, etc
