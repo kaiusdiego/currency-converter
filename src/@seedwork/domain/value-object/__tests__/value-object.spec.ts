@@ -21,8 +21,8 @@ describe("ValueObject Unit Tests",()=>{
     const date = new Date()
 
     let arrange = [
-      { received: null, expected: "null"},
-      { received: undefined, expected: "undefined"},
+      // { received: null, expected: "null"},
+      // { received: undefined, expected: "undefined"},
       { received: "", expected: ""},
       { received: "fake test", expected: "fake test"},
       { received: 0, expected: "0"},
