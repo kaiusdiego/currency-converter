@@ -1,3 +1,4 @@
+import Entity from "@seedwork/domain/entity/entity";
 import UniqueEntityId from "../../../@seedwork/domain/value-object/unique-entity-id-vo";
 
 export type CurrencyProperties = {
@@ -8,12 +9,10 @@ export type CurrencyProperties = {
   created_at?: Date;
 };
 
-export class Currency {
+export class Currency extends Entity<CurrencyProperties> {
   
-  public readonly id: UniqueEntityId
-
   constructor(public readonly props: CurrencyProperties, id?: UniqueEntityId) {
-    this.id = id || new UniqueEntityId()
+    super(props, id)
     this.props.is_active = this.props.is_active ?? true
     this.props.created_at = this.props.created_at ?? new Date
   }
@@ -54,3 +53,7 @@ export class Currency {
     return this.props.created_at
   } 
 }
+
+
+// const a = new Currency({iso_code_from: 'BRL',
+// iso_code_to'USD',quotation: 5})
