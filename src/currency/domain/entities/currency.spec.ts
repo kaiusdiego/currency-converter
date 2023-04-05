@@ -67,7 +67,7 @@ describe("Currency Unit Tests", () => {
     data.forEach(i => {
       const currency = new Currency(i.props, i.id as any)
       expect(currency.id).not.toBeNull()
-      expect(currency.id).toBeInstanceOf(UniqueEntityId)        
+      expect(currency.uniqueEntityId).toBeInstanceOf(UniqueEntityId)        
     });
 
   })

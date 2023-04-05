@@ -1,4 +1,4 @@
-import Entity from "@seedwork/domain/entity/entity";
+import Entity from "../../../@seedwork/domain/entity/entity";
 import UniqueEntityId from "../../../@seedwork/domain/value-object/unique-entity-id-vo";
 
 export type CurrencyProperties = {
