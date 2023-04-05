@@ -1,4 +1,4 @@
-import { EntityValidationError } from "@seedwork/domain/errors/validator-error";
+import { EntityValidationError } from "../../../@seedwork/domain/errors/validator-error";
 import Entity from "../../../@seedwork/domain/entity/entity";
 import UniqueEntityId from "../../../@seedwork/domain/value-object/unique-entity-id-vo";
 import CurrencyValidatorFactory from "../validators/currency.validator";
@@ -50,7 +50,7 @@ export class Currency extends Entity<CurrencyProperties> {
   }
 
   private set iso_code_from(value: string){
-    this.iso_code_from = value
+    this.props.iso_code_from = value
   }
 
   get iso_code_to(){
@@ -58,7 +58,7 @@ export class Currency extends Entity<CurrencyProperties> {
   }
 
   private set iso_code_to(value: string){
-    this.iso_code_to = value
+    this.props.iso_code_to = value
   }
 
   get quotation(){
@@ -66,7 +66,7 @@ export class Currency extends Entity<CurrencyProperties> {
   }
 
   private set quotation(value: number){
-    this.quotation = value
+    this.props.quotation = value
   }
 
   get is_active(){
@@ -74,7 +74,7 @@ export class Currency extends Entity<CurrencyProperties> {
   }
 
   private set is_active(value: boolean){
-    this.is_active = value ?? true
+    this.props.is_active = value ?? true
   }
 
   get created_at(){

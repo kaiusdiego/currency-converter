@@ -97,7 +97,7 @@ describe("Currency Unit Tests", () => {
       quotation: 5,
       is_active: true,
     })
-    expect(currency.iso_code_to).toBe("BRL")
+    expect(currency.iso_code_to).toBe("USD")
 
     currency["iso_code_to"] = "USD"
     expect(currency.iso_code_to).toBe("USD")

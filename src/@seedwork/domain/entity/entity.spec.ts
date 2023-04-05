@@ -23,7 +23,6 @@ describe("Entity Unit Tests",()=>{
 
     expect(entity.uniqueEntityId).toBeInstanceOf(UniqueEntityId)
     expect(entity.id).toBe(uniqueEntityId.value)
-    console.log(uniqueEntityId)
   })
 
 

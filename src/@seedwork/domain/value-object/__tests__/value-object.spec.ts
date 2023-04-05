@@ -10,7 +10,6 @@ describe("ValueObject Unit Tests",()=>{
     
     let vo = new StubValueObject('string value')
     expect(vo.value).toBe('string value')
-    console.log();
     
     
     vo = new StubValueObject({prop1: 'moeda1'})

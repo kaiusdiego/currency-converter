@@ -1,0 +1,21 @@
+{
+  "jsc": {
+      "parser": {
+          "syntax": "typescript",
+          "decorators": true
+      },
+      "transform": {
+        "legacyDecorator": true
+      },
+      "baseUrl": "./src",
+      "keepClassNames": true,
+      "paths": {
+          "#seedwork/*": [
+              "./@seedwork/*"
+          ],
+          "#currency/*": [
+              "./currency/*"
+          ]
+      }
+  }
+}
