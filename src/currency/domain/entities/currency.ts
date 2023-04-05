@@ -11,10 +11,12 @@ export type CurrencyProperties = {
   created_at?: Date;
 };
 
+
+export class CurrencyId extends UniqueEntityId{}
 export class Currency extends Entity<CurrencyProperties> {
   
-  constructor(public readonly props: CurrencyProperties, id?: UniqueEntityId) {
-    super(props, id)
+  constructor(public readonly props: CurrencyProperties, entityId?: CurrencyId) {
+    super(props, entityId ?? new CurrencyId())
     Currency.validate(props)
     this.props.is_active = this.props.is_active ?? true
     this.props.created_at = this.props.created_at ?? new Date
@@ -77,6 +79,15 @@ export class Currency extends Entity<CurrencyProperties> {
 
   get created_at(){
     return this.props.created_at
-  } 
+  }
+  
+  activate() {
+    this.props.is_active = true
+  }
+
+  deactivate() {
+    this.props.is_active = false
+  }
+
 }
 
