@@ -15,9 +15,24 @@ export class Currency extends Entity<CurrencyProperties> {
   
   constructor(public readonly props: CurrencyProperties, id?: UniqueEntityId) {
     super(props, id)
+    Currency.validate(props)
     this.props.is_active = this.props.is_active ?? true
     this.props.created_at = this.props.created_at ?? new Date
   }
+
+  update(iso_code_from: string, iso_code_to: string, quotation: number): void {
+    
+    Currency.validate({
+      iso_code_from,
+      iso_code_to,
+      quotation,
+    })
+
+    this.iso_code_from = iso_code_from
+    this.iso_code_to = iso_code_to
+    this.quotation = quotation;
+  }
+
 
 
   static validate(props: CurrencyProperties) {
