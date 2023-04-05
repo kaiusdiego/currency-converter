@@ -1,5 +1,7 @@
+import { EntityValidationError } from "@seedwork/domain/errors/validator-error";
 import Entity from "../../../@seedwork/domain/entity/entity";
 import UniqueEntityId from "../../../@seedwork/domain/value-object/unique-entity-id-vo";
+import CurrencyValidatorFactory from "../validators/currency.validator";
 
 export type CurrencyProperties = {
   iso_code_from: string; //eg: BRL, USD, etc
@@ -15,6 +17,15 @@ export class Currency extends Entity<CurrencyProperties> {
     super(props, id)
     this.props.is_active = this.props.is_active ?? true
     this.props.created_at = this.props.created_at ?? new Date
+  }
+
+
+  static validate(props: CurrencyProperties) {
+    const validator = CurrencyValidatorFactory.create();
+    const isValid = validator.validate(props);
+    if (!isValid) {
+      throw new EntityValidationError(validator.errors);
+    }
   }
 
   get iso_code_from(){
@@ -54,6 +65,3 @@ export class Currency extends Entity<CurrencyProperties> {
   } 
 }
 
-
-// const a = new Currency({iso_code_from: 'BRL',
-// iso_code_to'USD',quotation: 5})
