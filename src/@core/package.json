@@ -9,14 +9,47 @@
     "#currency/domain": "./dist/currency/domain/index.js",
     "#currency/*": "./dist/currency/*.js"
   },
+  "exports": {
+    "./@seedwork/application": "./dist/@seedwork/application/index.js",
+    "./@seedwork/domain": "./dist/@seedwork/domain/index.js",
+    "./@seedwork/infra": "./dist/@seedwork/infra/index.js",
+    "./currency/application": "./dist/currency/application/index.js",
+    "./currency/domain": "./dist/currency/domain/index.js",
+    "./currency/infra": "./dist/currency/infra/index.js"
+  },
+  "typesVersions": {
+    ">=4.0": {
+      "@seedwork/application": [
+        "./dist/@seedwork/application/index.d.ts"
+      ],
+      "@seedwork/domain": [
+        "./dist/@seedwork/domain/index.d.ts"
+      ],
+      "@seedwork/infra": [
+        "./dist/@seedwork/infra/index.d.ts"
+      ],
+      "currency/application": [
+        "./dist/currency/application/index.d.ts"
+      ],
+      "currency/domain": [
+        "./dist/currency/domain/index.d.ts"
+      ],
+      "currency/infra": [
+        "./dist/currency/infra/index.d.ts"
+      ]
+    }
+  },
   "scripts": {
     "ts-node": "ts-node",
     "tsc": "tsc",
     "tsc:check": "npm run tsc -- --noEmit",
-    "clean-tsc": "rm tsconfig.tsbuildinfo",
+    "build": "tsc -b ./tsconfig.json",
+    "build:w": "tsc -b ./tsconfig.json -w",
+    "clean:tsc": "rm tsconfig.tsbuildinfo",
     "test": "jest",
-    "cti":"cti",
-    "cti:@core": "sh ./cti.sh"
+    "test:cov": "npm run test -- --coverage",
+    "cti": "cti",
+    "cti:make": "sh ./cti.sh"
   },
   "keywords": [],
   "author": "",

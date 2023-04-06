@@ -9,8 +9,8 @@
     "./src/nest"
   ],
   "scripts": {
-    "prestart:dev": "npm run build -w @fc/micro-videos",
-    "start:dev": "npm run build:w -w @fc/micro-videos & npm run start:dev -w nestjs",
+    "prestart:dev": "npm run build -w sbf-converter",
+    "start:dev": "npm run build:w -w sbf-converter & npm run start:dev -w nestjs",
     "test": "jest",
     "test:cov": "jest --coverage"
   },
