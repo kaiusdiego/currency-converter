@@ -10,6 +10,10 @@ export default {
   // Stop running tests after `n` failures
   // bail: 0,
 
+  displayName: {
+    name: '@core',
+    color: 'blue'
+  },
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "/tmp/jest_rs",
 
@@ -23,7 +27,7 @@ export default {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  // coverageDirectory: undefined,
+  coverageDirectory: '../__coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -42,8 +46,14 @@ export default {
   // ],
 
   // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
-
+  coverageThreshold: {
+    global: {
+      statements: 70,
+      branches: 70,
+      functions: 70,
+      lines: 70
+    },
+  },
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
 
@@ -135,7 +145,10 @@ export default {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  // setupFilesAfterEnv: [
+  //   "./@seedwork/domain/tests/validations.ts",
+  //   "./@seedwork/domain/tests/jest.ts",
+  //  ],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
