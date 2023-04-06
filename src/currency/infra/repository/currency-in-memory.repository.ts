@@ -4,7 +4,7 @@ import { Currency } from "../../domain/entities/currency"
 import CurrencyRepository from "../../domain/repository/currency.repository";
 
 
-export type ConvertionResponse = {
+export type ConversionResponse = {
   iso_code: string, 
   price: number
 }
@@ -22,11 +22,11 @@ implements CurrencyRepository{
     return itemFound
   }
 
-  async convert(currencies: Currency[], price: number): Promise<ConvertionResponse[]>{
+  async convert(currencies: Currency[], price: number): Promise<ConversionResponse[]>{
 
-    const conversions: ConvertionResponse[] = []
+    const conversions: ConversionResponse[] = []
     currencies.forEach(currency => {
-      let c: ConvertionResponse
+      let c: ConversionResponse
       c.iso_code = currency.iso_code_from
       c.price = price/currency.quotation
       conversions.push(c)

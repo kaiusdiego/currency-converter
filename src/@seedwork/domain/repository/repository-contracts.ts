@@ -6,5 +6,5 @@ export interface RepositoryInterface<E extends Entity>{
   findById(id: string | UniqueEntityId): Promise<E>
   findAll(): Promise<E[]>
   update(entity: E): Promise<void>
-  delete(id): Promise<void>
+  delete(id: string): Promise<void>
 }
