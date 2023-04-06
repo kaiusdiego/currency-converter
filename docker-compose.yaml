@@ -5,3 +5,5 @@ services:
     container_name: sbf-converter-kaius-app
     volumes:
       - .:/home/node/app
+    ports:
+      - 3000:3000

@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "#seedwork/*": [
+        "./@seedwork/*"
+      ],
+      "#currency/*": [
+        "./currency/*"
+      ],
+      
+    },
+    "outDir": "./dist",
+  },
+  "include": [
+    "./src/"
+  ]
+}
