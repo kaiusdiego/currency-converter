@@ -3,6 +3,7 @@ services:
   app:
     build: .
     container_name: sbf-converter-kaius-app
+    command: .docker/start.sh
     volumes:
       - .:/home/node/app
     ports:
