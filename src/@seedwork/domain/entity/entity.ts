@@ -1,7 +1,7 @@
 import UniqueEntityId from "../value-object/unique-entity-id-vo";
 
 
-export default class Entity<Props> {
+export default abstract class Entity<Props = any> {
 
   public readonly uniqueEntityId: UniqueEntityId
 
