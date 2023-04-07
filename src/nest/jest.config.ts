@@ -17,7 +17,7 @@ export default {
   coverageDirectory: '../__coverage',
   testEnvironment: 'node',
   moduleNameMapper: {
-    'sbf\\-converter/(.*)$': `${sbf_converter_path}/$1`,
+    'sbf-converter/(.*)$': `${sbf_converter_path}/$1`,
     '#seedwork/(.*)$': `${sbf_converter_path}/@seedwork/$1`,
 
     '#currency/(.*)$': `${sbf_converter_path}/currency/$1`,
