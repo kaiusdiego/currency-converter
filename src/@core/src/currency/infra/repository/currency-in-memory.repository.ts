@@ -10,8 +10,9 @@ export type ConversionResponse = {
 }
 
 
-export default class CurrencyInMemoryRepository extends InMemoryRepository<Currency> 
-implements CurrencyRepository{
+export class CurrencyInMemoryRepository 
+extends InMemoryRepository<Currency> 
+implements CurrencyRepository.Repository{
 
   async findByIsoCode(iso_code: string): Promise<Currency[]>{
 
@@ -26,9 +27,10 @@ implements CurrencyRepository{
 
     const conversions: ConversionResponse[] = []
     currencies.forEach(currency => {
-      let c: ConversionResponse
-      c.iso_code = currency.iso_code_from
-      c.price = price/currency.quotation
+      let c: ConversionResponse = {iso_code: "", price: 0}
+      
+      c.iso_code = currency.props.iso_code_from
+      c.price = price/currency.props.quotation
       conversions.push(c)
     })
     return conversions
@@ -36,3 +38,5 @@ implements CurrencyRepository{
   
 
 }
+
+export default CurrencyInMemoryRepository
