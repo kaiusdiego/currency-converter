@@ -14,7 +14,7 @@ export namespace ListCurrencyUseCase{
   }
 
   export type Input = {
-    id: string,
+    id?: string,
     iso_code: string,
     price: number
   }
