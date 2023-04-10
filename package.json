@@ -9,8 +9,10 @@
     "./src/nest"
   ],
   "scripts": {
-    "prestart:dev": "npm run build -w sbf-converter",
     "start:dev": "npm run build:w -w sbf-converter & npm run start:dev -w nestjs",
+    "build": "npm run build --w sbf-converter",
+    "build:nest": "npm run build --w nestjs",
+    "start:prod": "npm run build -w sbf-converter & npm run start:prod -w nestjs",
     "test": "jest",
     "test:cov": "jest --coverage"
   },

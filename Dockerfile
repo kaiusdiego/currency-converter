@@ -10,8 +10,6 @@ RUN apt update && apt install -y\
 
 RUN npm install -g @nestjs/cli@8.2.5 npm@8.5.5
 
-USER node
+WORKDIR /app
 
-WORKDIR /home/node/app
-
-CMD [ "tail", "-f" , "/dev/null" ]
+COPY . ./
