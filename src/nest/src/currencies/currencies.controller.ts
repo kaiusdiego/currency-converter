@@ -1,14 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Inject } from '@nestjs/common';
-import { CreateCurrencyUseCase, CurrencyOutput, DeleteCurrencyUseCase, ListCurrencyUseCase, UpdateCurrencyUseCase } from 'sbf-converter/currency/application';
-import { ConversionResponse } from 'sbf-converter/currency/infra';
-import { CreateCurrencyDto } from './dto/create-currency.dto';
-import { UpdateCurrencyDto } from './dto/update-currency.dto';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Inject } from '@nestjs/common'
+import { CreateCurrencyUseCase, CurrencyOutput, DeleteCurrencyUseCase, ListCurrencyUseCase, UpdateCurrencyUseCase } from 'sbf-converter/currency/application'
+import { CreateCurrencyDto } from './dto/create-currency.dto'
+import { UpdateCurrencyDto } from './dto/update-currency.dto'
 
 @Controller('currencies')
 export class CurrenciesController {
 
   @Inject(CreateCurrencyUseCase.UseCase)
-  private createUseCase: CreateCurrencyUseCase.UseCase;
+  private createUseCase: CreateCurrencyUseCase.UseCase
 
   @Inject(ListCurrencyUseCase.UseCase)
   private listUseCase: ListCurrencyUseCase.UseCase
@@ -21,13 +20,7 @@ export class CurrenciesController {
 
   @Post()
   async create(@Body() createCurrencyDto: CreateCurrencyDto) {
-    const output = await this.createUseCase.execute(
-      {
-        iso_code_from: "EUR",
-        iso_code_to: "BRL",
-        quotation: 5.5
-      });
-      return output
+    return await this.createUseCase.execute(createCurrencyDto)
   }
 
   @Get()
@@ -50,6 +43,6 @@ export class CurrenciesController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.deleteUseCase.execute({id})
+      return this.deleteUseCase.execute({id})
   }
 }

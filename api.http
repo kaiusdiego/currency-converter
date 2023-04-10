@@ -2,8 +2,33 @@
 
 # GET http://localhost:3000/currencies
 
-# GET http://localhost:3000/currencies/'BRL'
+
+#get price conversion from BRL to others currencies
+# GET http://localhost:3000/currencies/BRL/529
+# 
 
 
 
-POST http://localhost:3000/currencies
+#create a new currency 
+# POST http://localhost:3000/currencies
+# Content-Type: application/json
+# {
+# 	"iso_code_from": "USD",
+# 	"iso_code_to": "BRL",
+# 	"quotation": 5.1
+# }
+
+
+#updating a currency 
+# PATCH  http://localhost:3000/currencies/62236c07-8783-4f1e-b33a-a7c37db9b02c HTTP/1.1
+# Content-Type: application/json
+
+# {
+#   "id": "62236c07-8783-4f1e-b33a-a7c37db9b02c", 
+# 	"iso_code_from": "USD",
+# 	"iso_code_to": "BRL",
+# 	"quotation": 5
+# }
+
+
+# DELETE http://localhost:3000/currencies/62236c07-8783-4f1e-b33a-a7c37db9b02c
