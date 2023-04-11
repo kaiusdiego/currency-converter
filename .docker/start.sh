@@ -17,5 +17,3 @@ npm run build -w nestjs
 echo "###### Running application ######"
 
 npm run start:prod -w nestjs
-
-npm run start:doc
