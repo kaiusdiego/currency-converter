@@ -42,9 +42,9 @@ docker container exec -it sbf-converter-kaius-app npm run test
 ```
 
 
-### Documentação
+## Documentação (completa)
 
-Para acessar a documentação é necessário iniciar a aplicação pela seção, executar o comando: 
+Para acessar a documentação completa é necessário iniciar a aplicação pela seção, executar o comando: 
 ```sh
 
 
@@ -55,3 +55,66 @@ E acessar o endereço:
 ```sh
 http://localhost:3001/
 ```
+
+
+
+
+## Documentação (versão resumida)
+
+
+### Converter valores
+
+#### Retorna a conversão de todas as cotações cadastradas para o valor solicitado
+
+```http
+  GET /currencies/iso_code/price
+```
+
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `iso_code` | `string` | **Obrigatório**. iso_code da moeda, ex: BRL |
+| `price` | `number` | **Obrigatório**. Valor a ser convertido |
+
+
+#### Retorno
+```
+[
+  {
+    "iso_code": "USD",
+    "price": 19.607843137254903
+  }
+]
+```
+ 
+
+### Criar nova cotação
+
+#### Retorna a cotação criada
+
+```http
+  POST /currencies/
+```
+
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `iso_code_from` | `string` | **Obrigatório**. iso_code da moeda, ex: USD |
+| `iso_code_to` | `string` | **Obrigatório**. iso_code da moeda, ex: BRL|
+| `quotation` | `number` | **Obrigatório**. Valor da cotação |
+
+
+
+#### Retorno
+```
+{
+  "id": "b258219b-e2f5-44f1-a0e3-b01312c4515e",
+  "iso_code_from": "USD",
+  "iso_code_to": "BRL",
+  "quotation": 5.1,
+  "is_active": true,
+  "created_at": "2023-04-10T21:54:20.527Z"
+}
+```
+ 
+
+ 
+ 
