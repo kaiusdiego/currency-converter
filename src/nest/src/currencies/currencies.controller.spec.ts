@@ -1,16 +1,14 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { CreateCurrencyUseCase, ListCurrencyUseCase, UpdateCurrencyUseCase } from 'sbf-converter/currency/application';
-import { CurrenciesController } from './currencies.controller';
-import { CurrenciesService } from './currencies.service';
-import { CreateCurrencyDto } from './dto/create-currency.dto';
-import { UpdateCurrencyDto } from './dto/update-currency.dto';
+import { CreateCurrencyUseCase, ListCurrencyUseCase, UpdateCurrencyUseCase } from 'sbf-converter/currency/application'
+import { CurrenciesController } from './currencies.controller'
+import { CreateCurrencyDto } from './dto/create-currency.dto'
+import { UpdateCurrencyDto } from './dto/update-currency.dto'
 
 describe('CurrenciesController', () => {
   let controller: CurrenciesController
 
   beforeEach(async () => {
     controller = new CurrenciesController()
-  });
+  })
 
   it('should creates a new currency', async () => {
     const expectedOutput: CreateCurrencyUseCase.Output = {
@@ -27,7 +25,7 @@ describe('CurrenciesController', () => {
     }
 
     //@ts-expect-error
-    controller["createUseCase"] = MockCreateUseCase;
+    controller["createUseCase"] = MockCreateUseCase
 
     let input: CreateCurrencyDto = {
       iso_code_from: 'USD',
@@ -39,8 +37,8 @@ describe('CurrenciesController', () => {
 
     expect(MockCreateUseCase.execute).toHaveBeenCalledWith(input)
 
-    expect(expectedOutput).toStrictEqual(output);
-  });
+    expect(expectedOutput).toStrictEqual(output)
+  })
 
   it('should update a currency', async () => {
 
@@ -60,7 +58,7 @@ describe('CurrenciesController', () => {
     }
 
     //@ts-expect-error
-    controller["updateUseCase"] = MockUpdateUseCase;
+    controller["updateUseCase"] = MockUpdateUseCase
 
     let input: UpdateCurrencyDto = {
       iso_code_from: 'USD',
@@ -73,7 +71,7 @@ describe('CurrenciesController', () => {
     expect(MockUpdateUseCase.execute).toHaveBeenCalledWith({id, ...input})
 
     expect(expectedOutput).toStrictEqual(output)
-  });
+  })
 
   it('should get a conversion', async () => {
      
@@ -86,19 +84,18 @@ describe('CurrenciesController', () => {
     }
 
     //@ts-expect-error
-    controller["listUseCase"] = MockConversionUseCase;
+    controller["listUseCase"] = MockConversionUseCase
     const iso_code = 'BRL'
     const price = 100
 
     const output = await controller.findOne(iso_code,price)
-    console.log('output',output);
     
     expect(MockConversionUseCase.execute)
     .toHaveBeenCalledWith({iso_code,price})
 
     expect(expectedOutput).toStrictEqual(output)
 
-  });
+  })
 
   it('should delete a currency', async () => {
     const expectedOutput = undefined
@@ -117,7 +114,7 @@ describe('CurrenciesController', () => {
     const output = await controller.remove(id)
     expect(mockDeleteUseCase.execute).toBeCalledWith({id})
     expect(expectedOutput).toStrictEqual(output)
-  });
+  })
 
   
-});
+})

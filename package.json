@@ -13,6 +13,7 @@
     "build": "npm run build --w sbf-converter",
     "build:nest": "npm run build --w nestjs",
     "start:prod": "npm run build -w sbf-converter & npm run start:prod -w nestjs",
+    "start:doc": "npx @compodoc/compodoc -p tsconfig.base.json -s -r 3001",
     "test": "jest",
     "test:cov": "jest --coverage"
   },
