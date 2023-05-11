@@ -71,7 +71,7 @@ http://localhost:3001/
   GET /currencies/iso_code/price
 ```
 
-| Parâmetro   | Tipo       | Descrição                           |
+| Parameter   | Type       | Description                           |
 | :---------- | :--------- | :---------------------------------- |
 | `iso_code` | `string` | **Required**. iso_code quotation, ex: USD |
 | `price` | `number` | **Required**. Value to be converted |
@@ -96,7 +96,7 @@ http://localhost:3001/
   POST /currencies/
 ```
 
-| Parâmetro   | Tipo       | Descrição                           |
+| Parameter   | Type       | Description                           |
 | :---------- | :--------- | :---------------------------------- |
 | `iso_code_from` | `string` | **Required**. iso_code quotation, ex: USD |
 | `iso_code_to` | `string` | **Required**. iso_code quotation, ex: BRL|
